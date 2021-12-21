@@ -1,0 +1,9 @@
+{
+	"name": "adf-test-mel-neu",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cbb75d2b-8d2d-4300-b4e1-3ba75bd7756f",
+		"tenantId": "a2e466aa-4f86-4545-b5b8-97da7c8febf3"
+	}
+}

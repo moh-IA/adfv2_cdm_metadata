@@ -1,0 +1,11 @@
+{
+	"name": "AzureDataLakeStorageMI",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stneumel01.dfs.core.windows.net"
+		}
+	}
+}
