@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-test-mel-neu"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorageSPN_servicePrincipalCredential": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageMI_properties_typeProperties_url": {
+			"value": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_url": {
+			"value": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_tenant": {
+			"value": "a2e466aa-4f86-4545-b5b8-97da7c8febf3"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_servicePrincipalId": {
+			"value": "7dcb5140-726a-4345-bfe8-48379e5b26ac"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kvmeladls.vault.azure.net/"
+		},
+		"DVFdatagouv_properties_typeProperties_url": {
+			"value": "https://static.data.gouv.fr/resources/demandes-de-valeurs-foncieres/20210330-102242/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/"
+		}
+	}
+}

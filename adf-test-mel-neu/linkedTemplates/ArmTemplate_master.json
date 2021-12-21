@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-test-mel-neu"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"AzureDataLakeStorageSPN_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'AzureDataLakeStorageSPN'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageMI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stneumel01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "a2e466aa-4f86-4545-b5b8-97da7c8febf3"
+		},
+		"AzureDataLakeStorageSPN_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "7dcb5140-726a-4345-bfe8-48379e5b26ac"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvmeladls.vault.azure.net/"
+		},
+		"DVFdatagouv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://static.data.gouv.fr/resources/demandes-de-valeurs-foncieres/20210330-102242/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-test-mel-neu_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"AzureDataLakeStorageSPN_servicePrincipalCredential": {
+						"value": "[parameters('AzureDataLakeStorageSPN_servicePrincipalCredential')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorageMI_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageMI_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorageSPN_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageSPN_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorageSPN_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeStorageSPN_properties_typeProperties_tenant')]"
+					},
+					"AzureDataLakeStorageSPN_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataLakeStorageSPN_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"DVFdatagouv_properties_typeProperties_url": {
+						"value": "[parameters('DVFdatagouv_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
