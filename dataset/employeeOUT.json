@@ -13,8 +13,9 @@
 				"folderPath": "curated",
 				"fileSystem": "dev"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": ";",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
