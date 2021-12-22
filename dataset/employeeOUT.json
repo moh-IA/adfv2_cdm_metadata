@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "silver",
-				"fileSystem": "dvf"
+				"folderPath": "curated",
+				"fileSystem": "dev"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
