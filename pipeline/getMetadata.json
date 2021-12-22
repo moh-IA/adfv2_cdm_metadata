@@ -281,7 +281,7 @@
 					"functionName": "get-metadata",
 					"method": "POST",
 					"body": {
-						"value": "@{concat('{\"file_name\":', string(activity('GetFileStructure').output.itemName), ',\"file_type\":', string(activity('GetFileStructure').output.itemType), ',\"last_modified\":', string(activity('GetFileStructure').output.lastModified), ',\"file_size\":', string(activity('GetFileStructure').output.size), ',\"file_structure\":', string(activity('GetFileStructure').output.structure), ',}')\n}",
+						"value": "activity('GetFileStructure').output",
 						"type": "Expression"
 					}
 				},
