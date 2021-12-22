@@ -99,27 +99,6 @@
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "get write metadata",
-				"type": "AzureFunctionActivity",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"functionName": "get-metadata",
-					"method": "POST"
-				},
-				"linkedServiceName": {
-					"referenceName": "metaDataFunc",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"annotations": []

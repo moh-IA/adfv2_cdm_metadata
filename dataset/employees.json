@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "employee.csv",
-				"folderPath": "bronz",
-				"fileSystem": "dvf"
+				"folderPath": "curated",
+				"fileSystem": "dev"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
