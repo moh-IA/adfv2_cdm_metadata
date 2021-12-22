@@ -281,7 +281,7 @@
 					"functionName": "get-metadata",
 					"method": "POST",
 					"body": {
-						"value": "activity('GetFileStructure').output",
+						"value": "@activity('GetFileStructure').output",
 						"type": "Expression"
 					}
 				},
