@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
+				"name": "GetFileStructure",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -40,7 +40,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "GetFileStructure",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -74,7 +74,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -253,10 +253,42 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "employeeOUT",
+						"referenceName": "employeeOut",
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "get write metadata",
+				"type": "AzureFunctionActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"functionName": "get-metadata",
+					"method": "POST",
+					"body": {
+						"value": "@{concat('{\"file_name\":', string(activity('GetFileStructure').output.itemName), ',\"file_type\":', string(activity('GetFileStructure').output.itemType), ',\"last_modified\":', string(activity('GetFileStructure').output.lastModified), ',\"file_size\":', string(activity('GetFileStructure').output.size), ',\"file_structure\":', string(activity('GetFileStructure').output.structure), ',}')\n}",
+						"type": "Expression"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "metaDataFunc",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
