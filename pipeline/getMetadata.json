@@ -24,7 +24,8 @@
 						"itemType",
 						"lastModified",
 						"size",
-						"structure"
+						"structure",
+						"columnCount"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -120,7 +121,7 @@
 							{
 								"source": {
 									"name": "birthdate",
-									"type": "String",
+									"type": "DateTime",
 									"physicalType": "String"
 								},
 								"sink": {
